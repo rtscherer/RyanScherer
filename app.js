@@ -1,5 +1,5 @@
 // SCHERER DEVELOPMENT
-// CAMPLIFE WEBSITE
+// RYAN SCHERER WEBSITE
 // app.js
 
 // connect to the dealerbid database
