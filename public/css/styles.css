@@ -127,6 +127,10 @@ input:focus {
     width: 80%;
   }
 
+  .subscribe-text {
+    width: 80%;
+  }
+
   .socialmedia {
     position: absolute;
     top: 60%;
