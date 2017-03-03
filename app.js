@@ -10,6 +10,7 @@
 var server = require('./core/server');
 server.start();
 
+<<<<<<< HEAD
 var spotify = require('./service/spotify/authorization');
 var playlists = require('./service/spotify/playlists');
 spotify.authorize()
@@ -25,3 +26,10 @@ spotify.authorize()
   .catch(function(error) {
     console.log(error);
   });
+=======
+//var authorization = require('./core/authorization');
+//console.log(authorization.authorize());
+
+//var playlists = require('./service/spotify/playlists');
+//console.log(playlists.getPlaylist());
+>>>>>>> origin/master
