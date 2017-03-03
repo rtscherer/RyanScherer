@@ -10,8 +10,18 @@
 var server = require('./core/server');
 server.start();
 
-var authorization = require('./core/authorization');
-console.log(authorization.authorize());
-
+var spotify = require('./service/spotify/authorization');
 var playlists = require('./service/spotify/playlists');
-console.log(playlists.getPlaylist());
+spotify.authorize()
+  .then(function(res) {
+    playlists.getPlaylist(res)
+    .then(function(res) {
+      console.log(res);
+    })
+    .catch(function(error){
+      console.log(error);
+    });
+  })
+  .catch(function(error) {
+    console.log(error);
+  });
