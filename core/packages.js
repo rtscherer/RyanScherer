@@ -7,10 +7,31 @@ module.exports = {
         var express = require('express');
         var app = express();
         var bodyParser = require('body-parser');
+        var spotify = require('../services/spotify/authorization');
+        /* const exphbs = require('express-handlebars')
+
+        app.engine('.hbs', exphbs({
+          defaultLayout: 'main',
+          extname: '.hbs',
+          layoutsDir: path.join(__dirname, 'views/layouts')
+        }))
+        app.set('view engine', '.hbs')
+        app.set('views', path.join(__dirname, 'views')) */
 
         // configure bodyParser for POST
         app.use(bodyParser.urlencoded({extended: true}));
         app.use(bodyParser.json());
+
+        spotify.authorize();
+
+        var playlistRouter = require('../services/spotify/playlists/routes');
+
+        app.use('/spotify', playlistRouter);
+
+        playlistRouter.use(function(req, res, next) {
+            console.log('LOG: A request was made to the playlist router');
+            next();
+        });
 
         // set the static files location
         app.use(express.static('./public'));
