@@ -40,6 +40,14 @@ module.exports = {
             res.sendfile('./public/views/index.html');
         });
 
+        app.get('/angular', function(req, res) {
+            res.sendfile('./public/views/angular.html');
+        });
+
+        app.get('/spotify', function(req, res) {
+            res.sendfile('./public/views/spotify.html');
+        });
+
         return app;
     }
 };

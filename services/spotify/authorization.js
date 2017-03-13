@@ -7,20 +7,30 @@ module.exports = {
     authorize: function() {
       var basicAuth = GetBasicAuthToken();
 
-      var options = { method: 'POST',
-        url: 'https://accounts.spotify.com/api/token',
-        json: true,
-        headers:
-         { authorization: basicAuth,
-           'content-type': 'application/x-www-form-urlencoded' },
-           form: { grant_type: 'client_credentials' } };
+      var options =
+      {
+          method: 'POST',
+          url: 'https://accounts.spotify.com/api/token',
+          json: true,
+          headers:
+          {
+            authorization: basicAuth,
+            'content-type': 'application/x-www-form-urlencoded'
+          },
+          form:
+          {
+            grant_type: 'client_credentials'
+          }
+      };
 
-        rp(options).then((data) => {
-          config.services.spotify.auth =
-            data.token_type + " " + data.access_token;
+      rp(options)
+        .then((data) => {
+            config.services.spotify.auth =
+              data.token_type + " " + data.access_token;
+            console.log(config.services.spotify.auth);
         })
         .catch((err) => {
-          console.log(err);
+            console.log(err);
         });
     }
 };

@@ -1,16 +1,11 @@
 var config = require('../../../config');
+var base = require('../base')();
 var rp = require('request-promise');
 
 var controller = function() {
     var get = function(req, res) {
 
-      var options = {
-        method: 'GET',
-        url: config.services.spotify.baseUri + config.services.spotify.basePaths.getPlaylist,
-        json: true,
-        headers:
-         { authorization: config.services.spotify.auth,
-           accept: 'application/json' } };
+      var options = base.getRequest(config.services.spotify.basePaths.getPlaylist);
 
       rp(options)
         .then((data) => {
