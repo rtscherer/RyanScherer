@@ -1,6 +1,16 @@
 <!-- public/views/spotify.html -->
 <div class="jumbotron text-center">
-    <h1>Home Page 4 Life</h1>
-
-    <p>{{ tagline }}</p>
+    <h1>Spotify</h1>
+    <p>Playlist Name: {{ playlist.data.name }}</p>
+    <p>Total Songs: {{ playlist.data.tracks.items.length }}</p>
+    <div ng-repeat="image in playlist.data.images" ng-if="image.width == 640">
+      <img src="{{image.url}}" height="300px" width="300px" />
+    </div>
+    <h3>Songs</h3>
+    <div ng-repeat="item in playlist.data.tracks.items">
+      {{ item.track.name }} by {{ item.track.artists[0].name }}<br />
+      <img src="{{item.track.album.images[0].url}}" height="300px" width="300px" />
+      <br />
+      <br />
+    </div>
 </div>

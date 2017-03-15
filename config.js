@@ -7,9 +7,9 @@ module.exports = {
         baseUri: "https://api.spotify.com",
         auth: "",
         userId: "1210289775",
-        playlistId: "17XT1FZyiooHkK4NdP7bJH",
+        playlistId: "7iAVCjb27qmXkeIsuFhuMf",
         basePaths: {
-          getPlaylist: "/v1/users/1210289775/playlists/17XT1FZyiooHkK4NdP7bJH",
+          getPlaylist: "/v1/users/1210289775/playlists/7iAVCjb27qmXkeIsuFhuMf",
         }
       }
     }

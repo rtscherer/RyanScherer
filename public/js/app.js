@@ -1,1 +1,1 @@
-angular.module('ryanscherer', ['ngRoute', 'appRoutes', 'SpotifyCtrl', 'SpotifyService']);
+angular.module('ryanscherer', ['ngRoute', 'appRoutes', 'spotifyCtrl', 'spotifyService']);

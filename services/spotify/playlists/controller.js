@@ -1,6 +1,7 @@
 var config = require('../../../config');
 var base = require('../base')();
 var rp = require('request-promise');
+var Playlist = require('./model');
 
 var controller = function() {
     var get = function(req, res) {
@@ -9,7 +10,13 @@ var controller = function() {
 
       rp(options)
         .then((data) => {
-            res.send(data);
+            var playlist = new Playlist({
+                  name: data.name,
+                  externalUrls: data.external_urls,
+                  images: data.images,
+                  tracks: data.tracks
+                });
+            res.send(playlist);
         })
         .catch((err) => {
             console.log(err);
